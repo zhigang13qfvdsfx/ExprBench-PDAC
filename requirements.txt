@@ -1,0 +1,6 @@
+numpy>=2.0
+pandas==2.3.3
+scipy>=1.10
+lifelines==0.30.3
+scikit-learn==1.7.2
+matplotlib>=3.8

@@ -1,0 +1,11 @@
+outputs/
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+revision_20261012/inference_inputs/
+revision_20261012/sources/
+revision_20261012/new_cohorts/
+pdac_project/data_raw/
+pdac_project/data_external/
+pdac_project/results/01_tcga_prep/
