@@ -1,0 +1,44 @@
+{
+  "created_client_date": "2026-10-12",
+  "stage": "fixed before calculation of new cohort performance",
+  "purpose": "Expand external evaluation without using external outcomes for feature selection, adapter tuning, cohort selection or cutoff optimization.",
+  "original_primary_cohorts": ["GSE62452", "GSE85916"],
+  "new_primary_candidates": ["GSE71729", "GSE57495", "E-MTAB-6134"],
+  "additional_overlap_screen": ["GSE21501"],
+  "eligibility": [
+    "Human primary pancreatic ductal adenocarcinoma tumor specimens",
+    "One expression profile per patient",
+    "Patient identifier matched one-to-one to positive overall survival time and an explicitly defined death/censor event",
+    "At least 25 eligible cases and at least 10 deaths",
+    "At least 500 shared gene symbols before training-only variance selection",
+    "Exclude adjacent normal tissue, metastases, cell lines, duplicate patients and shared patients across deposits from independent pooling",
+    "Exclude cohorts with unresolvable endpoint definition, expression scale or identifiers and report the reason"
+  ],
+  "predictive_model": {
+    "teacher": "Unmodified archived TCGA expression-penalized Cox risk scores",
+    "legacy_predictions": "Keep the saved GSE62452, GSE85916 and GSE71729 scores byte-for-byte; GSE71729 repair concerns channel-2 phenotype parsing only.",
+    "adapter_design": "The legacy implementation is a platform-specific TCGA-only ElasticNet adapter, rather than one coefficient vector shared across platforms. Use the same locked recipe for new platforms and document this distinction.",
+    "new_platform_recipe": {
+      "gene_symbols": "uppercase, remove terminal numeric suffix, mean probe values per mapped symbol, exclude ambiguously mapped probes",
+      "shared_genes": "intersection of the platform gene symbols and TCGA expression symbols; select 3000 genes with highest variance in TCGA only",
+      "scale": "source-normalized log-scale arrays; retain source units and document; standardization mean and SD fitted in TCGA only",
+      "missing_expression": "legacy 0-value imputation",
+      "learner": "ElasticNetCV",
+      "l1_ratio": [0.1, 0.5, 0.9],
+      "n_alphas": 50,
+      "cv_folds": 3,
+      "max_iter": 4000,
+      "random_state": 42
+    },
+    "outcome_separation": "Save predictions, coefficients, training scalers and SHA256 hashes before joining external survival outcomes. Do not refit in response to external performance."
+  },
+  "endpoints_and_reporting": {
+    "primary": "Univariable continuous score Cox HR per within-cohort population SD (ddof=0) and Harrell C-index",
+    "pooling": "Fixed-effect and DerSimonian-Laird random-effects meta-analysis of log HR/SD with estimated standard errors from independent OS cohorts",
+    "sensitivity": "Leave-one-cohort-out pooling, including omission of GSE62452; original two-cohort estimate reported separately",
+    "negative_results": "Report every eligible cohort regardless of HR direction, confidence interval or P value",
+    "binary_cutoff": "Do not optimize or present an externally validated binary cutoff",
+    "exploratory": "GSE28735 cancer-death/overlap sensitivity and GSE21501 if independence from GSE71729 cannot be established"
+  },
+  "scope": "This retrospective public-data extension does not add newly recruited patients or constitute prospective clinical validation. ICGC and CPTAC are optional future RNA-seq validation resources; the present expansion targets the three named array cohorts under the existing cross-platform adapter design."
+}

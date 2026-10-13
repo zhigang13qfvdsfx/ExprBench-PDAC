@@ -1,0 +1,6 @@
+cohort,raw_expression_profiles,primary_tumor_profiles,eligible_survival,death_events,retained_for_primary_pool,reason
+GSE71729,357,145,123,83,True,Prespecified eligibility met; all eligible results reported
+GSE57495,63,63,63,42,True,Prespecified eligibility met; all eligible results reported
+E-MTAB-6134,309,309,288,181,True,Prespecified eligibility met; all eligible results reported
+GSE28735,90,45,42,29,False,Deposit explicitly included in GSE62452; cancer-death endpoint; paired normal profiles excluded
+GSE21501,132,132,102,66,False,Additional overlap screen: historical UNC/Yeh cohort may share patients with GSE71729; no cross-deposit patient key established. Not treated as independent pooled evidence.

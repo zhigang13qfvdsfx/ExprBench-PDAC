@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "Please cite the ExprBench-PDAC study and the original datasets when using this software."
+title: "ExprBench-PDAC"
+version: 1.1.1
+date-released: 2026-10-13
+url: "https://github.com/zhigang13qfvdsfx/ExprBench-PDAC"
+license: MIT
+authors:
+  - family-names: "Wang"
+    given-names: "Peng"
+  - family-names: "Cui"
+    given-names: "Xinzhe"
+  - family-names: "Xu"
+    given-names: "Peihao"
+  - family-names: "Lin"
+    given-names: "Dongwei"
+  - family-names: "Song"
+    given-names: "Yuelin"
+  - family-names: "Si"
+    given-names: "Jie"
+  - family-names: "Zhou"
+    given-names: "Hang"
+  - family-names: "Du"
+    given-names: "Jundong"
+  - family-names: "Ding"
+    given-names: "Jianzhong"
+  - family-names: "Wei"
+    given-names: "Zhigang"

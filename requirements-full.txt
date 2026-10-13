@@ -1,0 +1,17 @@
+-r requirements.txt
+pyarrow==23.0.1
+seaborn
+networkx
+gseapy
+requests
+PyYAML
+Pillow
+torch==2.11.0
+umap-learn
+scanpy
+anndata
+igraph
+leidenalg
+
+joblib==1.5.3
+scikit-survival==0.27.0

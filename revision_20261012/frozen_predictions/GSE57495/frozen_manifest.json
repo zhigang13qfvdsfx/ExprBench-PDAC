@@ -1,0 +1,30 @@
+{
+  "cohort": "GSE57495",
+  "frozen_at_utc": "2026-10-12T05:41:35.093739+00:00",
+  "stage": "predictions saved before external outcomes joined",
+  "plan_sha256": "9f718d67a0c7cdc773e7e953ef21d81c4e6d7cee953abcce40c379ed86eac7d6",
+  "inputs_sha256": {
+    "pdac_deliverables_bundle\\pdac_project\\results\\01_tcga_prep\\expression_matrix.csv": "5810eb6d7b01dadc940249f5a1fae9055b442bae0fc5c43fddce269ea5c86c7d",
+    "pdac_deliverables_bundle\\pdac_project\\results\\02_benchmark\\artifacts\\full_cohort_risk_scores.csv": "85e2b9c7ade186f0fd132542b95b07ec0eb3e72b3666bcf52e4a4703b9f94824",
+    "_codex_revision_20261012\\new_cohorts\\GSE57495\\expression.csv.gz": "32a8f34e4731f4dd244dd97d25d575d8da7ac8ff7db590e86e65d898f2decbd3",
+    "_codex_revision_20261012\\new_cohorts\\GSE57495\\provenance.json": "f1b3a23aee5ae1b7c4edcd0e83424635f4e4462f2600e86bd106f70efd10be8c"
+  },
+  "teacher": "Expr-Penalized-Cox archived TCGA risk",
+  "n_training": 166,
+  "n_external_profiles": 63,
+  "n_shared_genes": 18280,
+  "n_selected_genes": 3000,
+  "alpha": 0.0006910640430468755,
+  "l1_ratio": 0.9,
+  "n_iter": 2644,
+  "dual_gap": 3.2469322001594405e-05,
+  "training_surrogate_r2": 0.9999444706186009,
+  "warnings": [
+    "'n_alphas' was deprecated in 1.7 and will be removed in 1.9. 'alphas' now accepts an integer value which removes the need to pass 'n_alphas'. The default value of 'alphas' will change from None to 100 in 1.9. Pass an explicit value to 'alphas' and leave 'n_alphas' to its default value to silence this warning."
+  ],
+  "outputs_sha256": {
+    "adapter.npz": "17224d78e59c2cd801a3337d2cd347bd5e88375cd6d1f89ed40130d1f0e0ffe6",
+    "predictions.csv": "47af21dc581c3f62a668ab08abbe8822a06afc78f6236fd5c95387eb279db1c4"
+  },
+  "prediction_reconstruction_max_abs_error": 0.0
+}
